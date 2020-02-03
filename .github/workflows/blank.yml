@@ -20,4 +20,10 @@ jobs:
       run: |
         sudo apt-get install -y libreadline-dev libedit-dev wget
         wget https://cache.ruby-lang.org/pub/ruby/${Major}/ruby-${Major}.${Minor}.tar.gz
-        toolInstallationPath = "${ToolsDirectory}/Ruby/${Version}/${Architecture}"
+        tar -xzf ruby-${Major}.${Minor}.tar.gz
+        pushd ruby-${Major}.${Minor}
+        ./configure --prefix=/tmp/ruby
+        make
+        make install
+        popd
+        ls -l /tmp/ruby
