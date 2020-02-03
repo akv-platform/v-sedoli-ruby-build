@@ -32,8 +32,7 @@ jobs:
         which ruby
         ruby -v
         gem environment
-        which bundler
-        bundler -v
+        which bundler || true
         gem install bundler
         which bundler
         bundler -v
