@@ -18,6 +18,7 @@ jobs:
         ToolsDirectory:  /opt/hostedtoolcache/
         Architecture: x64
       run: |
+        set -x
         sudo apt-get install -y libreadline-dev libedit-dev wget
         wget https://cache.ruby-lang.org/pub/ruby/${Major}/ruby-${Major}.${Minor}.tar.gz
         tar -xzf ruby-${Major}.${Minor}.tar.gz
@@ -27,3 +28,12 @@ jobs:
         make install
         popd
         ls -l /tmp/ruby
+        export PATH=/tmp/ruby/bin:$PATH
+        which ruby
+        ruby -v
+        gem environment
+        which bundler
+        bundler -v
+        gem install bundler
+        which bundler
+        bundler -v
