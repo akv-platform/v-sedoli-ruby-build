@@ -9,14 +9,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - env:
+    - name: build ruby
+      env:
         DestinationPath:  /tmp/rubyd
         Major: '2.4'
         Minor: '9'
         InstallationPath: /tmp/ruby
         ToolsDirectory:  /opt/hostedtoolcache/
         Architecture: x64
-    - name: build ruby
       run: |
         sudo apt-get install -y libreadline-dev libedit-dev wget
         wget https://cache.ruby-lang.org/pub/ruby/${Major}/ruby-${Major}.${Minor}.tar.gz
